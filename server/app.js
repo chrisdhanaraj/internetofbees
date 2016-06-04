@@ -11,7 +11,7 @@ app.use(express.static(path.resolve(__dirname, '../static')));
 // request object - req.body
 
 // connect to mongodb
-// mongoose.connect(`mongodb://${config.mongo}/radio`);
+mongoose.connect(`mongodb://${config.mongo}/apiary`);
 
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
