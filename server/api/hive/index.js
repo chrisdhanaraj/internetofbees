@@ -5,8 +5,8 @@ var hiveSchema = Schema({
   _id     : Number,
   name    : String,
   age     : Number,
-  beepeker : [
-    { type: Schema.Types.ObjectId, ref: 'Beekeper' }
+  apiary : [
+    { type: Schema.Types.ObjectId, ref: 'Apiary' }
   ]
 });
 
