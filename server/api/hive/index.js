@@ -1,13 +1,85 @@
-var mongoose = require('mongoose')
-  , Schema = mongoose.Schema
+const express = require('express');
+const router = express.Router;
+const Hive = require('./hive.model');
 
-var hiveSchema = Schema({
-  _id     : Number,
-  name    : String,
-  age     : Number,
-  apiary : [
-    { type: Schema.Types.ObjectId, ref: 'Apiary' }
-  ]
-});
+const create = (req, res) => {
+  Hive.create(req.body, (err, hive) => {
+    if (err) {
+      return console.log(res, err);
+    }
+    return res.status(201).json(hive);
+  });
+};
 
-var Hive  = mongoose.model('Hive', hiveSchema);
+const getAll = (req, res) => {
+  Hive.find((err, hives) => {
+    if (err) {
+      return console.log(res, err);
+    }
+    return res.status(200).json(hives);
+  });
+};
+
+const getSingle = (req, res) => {
+  Hive.findById(req.params.id, (err, hive) => {
+    if (err) {
+      return console.log(res, err);
+    }
+    if (!hive) {
+      return res.status(404).send('Not Found');
+    }
+    return res.json(hive);
+  });
+};
+
+const update = (req, res) => {
+  if (req.body._id) {
+    delete req.body._id;
+  }
+
+  Hive.findById(req.params.id, (err, hive) => {
+    if (err) {
+      return console.log(res, err);
+    }
+    if (!hive) {
+      return res.status(404).send('Not Found');
+    }
+
+    const updated = Object.assign(hive, req.body);
+    updated.save(err => {
+      if (err) {
+        console.log(res, err);
+      }
+      return res.status(200).json(hive);
+    });
+  });
+};
+
+// Deletes a thing from the DB.
+const destroy = (req, res) => {
+  Hive.findById(req.params.id, (err, hive) => {
+    if (err) {
+      return console.log(res, err);
+    }
+
+    if (!hive) {
+      return res.status(404).send('Not Found');
+    }
+
+    show.remove(err => {
+      if (err) {
+        return console.log(res, err);
+      }
+      return res.status(204).send('No Content');
+    });
+  });
+};
+
+router.get('/', getAll);
+router.get('/:id', getSingle);
+router.post('/', create);
+router.put('/:id', update);
+router.patch('/:id', update);
+router.delete('/:id', destroy);
+
+module.exports = router;
