@@ -48,7 +48,6 @@ const signup = (req, res) => {
     password: password.hashPassword(req.body.password),
   });
 
-
   User.create(userObj, (err, user) => {
     if (err) {
       throw err;
