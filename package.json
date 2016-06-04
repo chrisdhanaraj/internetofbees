@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/chrisdhanaraj/internetofbees#readme",
   "dependencies": {
-    "express": "^4.13.4"
+    "express": "^4.13.4",
+    "react": "^15.1.0",
+    "react-router": "^2.4.1"
   },
   "devDependencies": {
     "browser-sync": "^2.12.10",
