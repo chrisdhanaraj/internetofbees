@@ -36,7 +36,6 @@ const signin = (req, res) => {
 
         res.json({
           token,
-          user,
         });
       }
     }
