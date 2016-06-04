@@ -4,7 +4,7 @@ module.exports = (app) => {
 
   // api routes
   app.use('/api/apiary', require('./api/apiary'));
-  // app.use('/api/hive', require('./api/hive'));
+  app.use('/api/hive', require('./api/hive'));
   // app.use('/api/inspection', require('./api/inspection'));
 
   app.use('/api/user', require('./api/user'));

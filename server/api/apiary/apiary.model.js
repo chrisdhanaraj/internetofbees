@@ -6,9 +6,10 @@ const apiarySchema = Schema({
   userId    : Number,
   name     : String,
   location : String,
-  hives: [
+  owner: [
     {
-      type: Schema.Types.ObjectId, ref: 'Hive'
+      type: Schema.Types.ObjectId,
+      ref: 'User'
     }
   ]
 });
