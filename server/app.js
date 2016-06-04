@@ -6,11 +6,13 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 
+const mongoose = require('mongoose');
+
 // middleware to declare static folder
 app.use(express.static(path.resolve(__dirname, '../static')));
 
 // connect to mongodb
-// mongoose.connect(`mongodb://${config.mongo}/apiary`);
+mongoose.connect(`mongodb://localhost:27017/bees`);
 
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
