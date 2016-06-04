@@ -3,15 +3,14 @@ const app = express();
 const routes = require('./routes');
 const path = require('path');
 
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
 
 // middleware to declare static folder
 app.use(express.static(path.resolve(__dirname, '../static')));
 
-// Body parser adds the {body} object to the
-// request object - req.body
-
 // connect to mongodb
-mongoose.connect(`mongodb://${config.mongo}/apiary`);
+// mongoose.connect(`mongodb://${config.mongo}/apiary`);
 
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));

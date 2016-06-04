@@ -4,6 +4,8 @@
   "description": "Internet of Bees application",
   "main": "server/index.js",
   "scripts": {
+    "dev": "nodemon server/app.js",
+    "start": "node server.app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -31,6 +33,7 @@
     "browser-sync": "^2.12.10",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
-    "gulp-sass": "^2.3.1"
+    "gulp-sass": "^2.3.1",
+    "nodemon": "^1.9.2"
   }
 }

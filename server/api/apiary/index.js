@@ -1,5 +1,5 @@
 const express = require('express');
-const router = express.Router;
+const router = express.Router();
 const Apiary = require('./apiary.model');
 
 const create = (req, res) => {

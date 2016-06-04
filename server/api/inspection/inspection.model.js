@@ -21,7 +21,7 @@ const inspectionSchema = Schema({
   seeOpenNectar: Boolean,
   totalFramesBees: Number,
   totalFramesBrood: Number,
-  totalFramesHoney, Number,
+  totalFramesHoney: Number,
   numberDeepBoxes: Number,
   numberMediumBoxes: Number,
   numberBadCombs: Number,
