@@ -1,6 +1,6 @@
-var iob = require('mongoose')
-  , Schema = iob.Schema
-  
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+
 var apiarySchema = Schema({
   _id     : Number,
   userId    : Number,
