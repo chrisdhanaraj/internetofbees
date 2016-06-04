@@ -36,7 +36,6 @@ const signin = (req, res) => {
 
         res.json({
           token,
-          user,
         });
       }
     }
@@ -44,12 +43,11 @@ const signin = (req, res) => {
  };
 
 const signup = (req, res) => {
-  const user = Object.assign({}, req.body, {
+  const userObj = Object.assign({}, req.body, {
     password: password.hashPassword(req.body.password),
   });
 
-
-  User.create(user, (err) => {
+  User.create(userObj, (err, user) => {
     if (err) {
       throw err;
     }
