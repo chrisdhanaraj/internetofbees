@@ -4106,8 +4106,9 @@ a.bg-danger:focus, a.bg-danger:hover {
   .hidden-print {
     display: none !important; } }
 
-.hero-bg {
-  background-color: #ffcc33; }
+.jumbotron {
+  background-color: #ffcc33;
+  background: url("/assets/yellowhero.jpg"); }
 
 .hero-btn {
   margin: 2em 1em; }
