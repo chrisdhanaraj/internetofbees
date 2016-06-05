@@ -4120,11 +4120,11 @@ html, body {
   height: 100%;
   width: 100%; }
 
+.h1-align {
+  margin-left: 200px; }
+
 .hero-btn {
   margin: 2em 1em; }
-
-#btn-color {
-  color: #f3f3f3; }
 
 .headline {
   margin-top: 10vh; }
@@ -4145,7 +4145,8 @@ html, body {
   margin-bottom: 20px; }
 
 .content-wrap {
-  max-width: 680px; }
+  max-width: 680px;
+  margin-left: 8px; }
 
 .login-center {
   margin-top: 8vh;
