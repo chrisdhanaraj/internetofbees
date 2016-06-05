@@ -35,20 +35,21 @@ const signin = (req, res) => {
         const token = generateToken(user);
 
         res.json({
-          id: user._id,
           token,
+          user,
         });
       }
     }
   });
-};
+ };
 
 const signup = (req, res) => {
-  const userObj = Object.assign({}, req.body, {
+  const user = Object.assign({}, req.body, {
     password: password.hashPassword(req.body.password),
   });
 
-  User.create(userObj, (err, user) => {
+
+  User.create(user, (err) => {
     if (err) {
       throw err;
     }

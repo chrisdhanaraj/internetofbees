@@ -9,6 +9,8 @@ const jwt = require('jsonwebtoken');
  */
 
 const generateToken = (user) => {
+  console.log(user);
+
   const relevant = {
     _id: user._id.toString(),
     firstName: user.firstName,
