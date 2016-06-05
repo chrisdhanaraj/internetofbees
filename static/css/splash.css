@@ -4146,3 +4146,7 @@ html, body {
 
 .content-wrap {
   max-width: 680px; }
+
+.login-center {
+  margin-top: 8vh;
+  margin-right: 4vw; }
