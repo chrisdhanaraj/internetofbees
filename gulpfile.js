@@ -28,6 +28,7 @@ gulp.task('watch', () => {
     proxy: 'localhost:3000'
   });
 
+  gulp.watch('./client/js/**/*.js', ['scripts']);
   gulp.watch('./client/scss/**/*.scss', ['styles']);
   gulp.watch('./server/views/*.html').on('change', browserSync.reload);
 });
