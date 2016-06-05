@@ -27,3 +27,16 @@ const server = app.listen(3000, 'localhost', err => {
     console.log('Listening at http://localhost:3000');
   }
 });
+
+fetch('localhost:3000/api/user/login')
+  .then(data => {
+    localStorage.setItem('bees-user', JSON.stringify(data));
+    window.location = '/dashboard';
+}
+  .catch(err => {
+      var errorElement = document.getElementById('error');
+
+      errorElement.classList.remove('hidden');
+      errorElement.classList.add('visible');
+
+}));

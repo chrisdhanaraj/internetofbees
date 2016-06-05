@@ -4151,3 +4151,12 @@ html, body {
 .login-center {
   margin-top: 8vh;
   margin-right: 4vw; }
+
+.error {
+  color: red; }
+
+.hidden {
+  display: none; }
+
+.visible {
+  display: block; }
