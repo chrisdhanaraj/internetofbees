@@ -2,18 +2,19 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const apiarySchema = Schema({
-  _id     : Number,
-  userId    : Number,
-  name     : String,
-  location : String,
-  owner: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'User'
-    }
-  ]
+  name: {
+    type: String,
+    required: true,
+  },
+  address: String,
+  lat: Number,
+  long: Number,
+  owner: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+  },
 });
 
-const Apiary  = mongoose.model('Apiary', apiarySchema);
+const Apiary = mongoose.model('Apiary', apiarySchema);
 
 module.exports = Apiary;

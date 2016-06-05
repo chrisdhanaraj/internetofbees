@@ -13,6 +13,10 @@ module.exports = (app) => {
     res.sendFile(path.resolve(__dirname, './views/app.html'));
   });
 
+  app.use('/login', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './views/app.html'));
+  });
+
   app.use('/dashboard', (req, res) => {
     res.sendFile(path.resolve(__dirname, './views/app.html'));
   });

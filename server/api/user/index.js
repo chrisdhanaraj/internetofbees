@@ -35,12 +35,13 @@ const signin = (req, res) => {
         const token = generateToken(user);
 
         res.json({
+          id: user._id,
           token,
         });
       }
     }
   });
- };
+};
 
 const signup = (req, res) => {
   const userObj = Object.assign({}, req.body, {
