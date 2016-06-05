@@ -4118,3 +4118,6 @@ a.bg-danger:focus, a.bg-danger:hover {
 
 .center {
   text-align: center; }
+
+.input-head {
+  font-size: 2em; }
