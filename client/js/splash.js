@@ -3,7 +3,7 @@ var signUpButton = document.getElementById("signup");
 
 if (loginButton) {
     loginButton.addEventListener('click', function(evt) {
-      window.fetch('https//localhost:3000/api/user/signin', {
+      window.fetch('http://localhost:3000/api/user/signin', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -32,7 +32,7 @@ if (loginButton) {
 if (signUpButton) {
 
 signUpButton.addEventListener('click', function(evt) {
-      window.fetch('https//localhost:3000/api/user/signup', {
+      window.fetch('http://localhost:3000/api/user/signup', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
