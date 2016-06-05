@@ -4106,5 +4106,57 @@ a.bg-danger:focus, a.bg-danger:hover {
   .hidden-print {
     display: none !important; } }
 
-body {
-  background-color: red; }
+html, body {
+  background: url("/assets/yellowhero.jpg") repeat center center fixed;
+  background-size: cover;
+  height: 100%; }
+
+.cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.58);
+  height: 100%;
+  width: 100%; }
+
+.h1-align {
+  margin-left: 200px; }
+
+.hero-btn {
+  margin: 2em 1em; }
+
+.headline {
+  margin-top: 10vh; }
+
+.headline-txt {
+  color: #fff; }
+
+.center {
+  text-align: center; }
+
+.input-head {
+  font-size: 2em; }
+
+.input-container {
+  max-width: 400px; }
+
+.btn-space {
+  margin-bottom: 20px; }
+
+.content-wrap {
+  max-width: 680px;
+  margin-left: 8px; }
+
+.login-center {
+  margin-top: 8vh;
+  margin-right: 4vw; }
+
+.error {
+  color: #ff1a1a; }
+
+.hidden {
+  display: none; }
+
+.visible {
+  display: block; }

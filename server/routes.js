@@ -23,7 +23,18 @@ module.exports = (app) => {
 
 
   // marketing route
+
+  app.use('/register', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './views/registration.html'));
+  });
+
+  app.use('/login', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './views/login.html'));
+  });
+
   app.use('/', (req, res) => {
     res.sendFile(path.resolve(__dirname, './views/index.html'));
   });
+
+
 }
