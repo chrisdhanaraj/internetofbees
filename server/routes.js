@@ -9,28 +9,15 @@ module.exports = (app) => {
 
   // react routes
   // marketing route
-
   app.get('*', (req, res, next) => {
-    if (req.path !== '/' || req.path !== '/register' || req.path !== '/login') {
-      res.sendFile(path.resolve(__dirname, './views/app.html'));
-    }
-
-    next();
-  });
-
-  // marketing route
-
-  app.use('/register', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './views/registration.html'));
-  });
-
-  app.use('/login', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './views/login.html'));
-  });
-
-  app.use('/', (req, res) => {
     if (req.path === '/') {
       res.sendFile(path.resolve(__dirname, './views/index.html'));
+    } else if (req.path === '/register') {
+      res.sendFile(path.resolve(__dirname, './views/registration.html'));
+    } else if (req.path === '/login') {
+      res.sendFile(path.resolve(__dirname, './views/login.html'));
+    } else {
+      res.sendFile(path.resolve(__dirname, './views/app.html'));
     }
   });
 };

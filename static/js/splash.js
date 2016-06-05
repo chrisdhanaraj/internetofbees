@@ -1,3 +1,5 @@
+"use strict";
+
 var loginButton = document.getElementById("signin");
 var signUpButton = document.getElementById("signup");
 
@@ -13,11 +15,14 @@ if (loginButton) {
         email: document.querySelector("#usr").value,
         password: document.querySelector("#pwd").value
       })
-    }).then(res => res.json()).then(data => {
+    }).then(function (res) {
+      return res.json();
+    }).then(function (data) {
       window.localStorage.setItem('bID', data.id);
       window.localStorage.setItem('bToken', data.token);
-      window.location = '/dashboard';
-    }).catch(err => {
+      console.log(data);
+      window.location = '/apiaries';
+    }).catch(function (err) {
       var errorElement = document.getElementById('error');
 
       errorElement.classList.remove('hidden');
@@ -39,13 +44,14 @@ if (signUpButton) {
         email: document.querySelector("#usr").value,
         password: document.querySelector("#pwd").value
       })
-    }).then(res => res.json()).then(data => {
+    }).then(function (res) {
+      return res.json();
+    }).then(function (data) {
       window.localStorage.setItem('bID', data.id);
       window.localStorage.setItem('bToken', data.token);
-      window.location = '/dashboard';
-    }).catch(err => {
+      window.location = '/apiaries';
+    }).catch(function (err) {
       var errorElement = document.getElementById('error');
-
       errorElement.classList.remove('hidden');
       errorElement.classList.add('visible');
     });

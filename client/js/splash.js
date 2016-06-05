@@ -18,7 +18,8 @@ if (loginButton) {
       .then(data => {
         window.localStorage.setItem('bID', data.id);
         window.localStorage.setItem('bToken', data.token);
-        window.location = '/dashboard';
+        console.log(data);
+        window.location = '/apiaries';
     })
       .catch(err => {
           var errorElement = document.getElementById('error');
@@ -47,11 +48,10 @@ signUpButton.addEventListener('click', function(evt) {
       .then(data => {
         window.localStorage.setItem('bID', data.id);
         window.localStorage.setItem('bToken', data.token);
-        window.location = '/dashboard';
+        window.location = '/apiaries';
     })
       .catch(err => {
           var errorElement = document.getElementById('error');
-
           errorElement.classList.remove('hidden');
           errorElement.classList.add('visible');
     })
