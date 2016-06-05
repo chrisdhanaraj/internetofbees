@@ -8,16 +8,19 @@ import 'whatwg-fetch';
 
 class App extends Component {
   constructor(props) {
+
+
     super(props);
   }
 
   componentDidMount() {
     const userId = window.localStorage.getItem('bId');
+    console.log(userId);
+  }
 
-    // temp while login is fixed
-    if (!userId) {
-      window.localStorage.setItem('bId', '57534ba876750f3cb159162d');
-    }
+  logout = () => {
+    window.localStorage.clear();
+    window.location = '/';
   }
 
   render() {
@@ -33,7 +36,7 @@ class App extends Component {
               <ul>
                 <li><Link activeClassName="active" to="/profile">Profile</Link></li>
                 <li><Link activeClassName="active" to="/apiaries">Apiaries</Link></li>
-                <li><Link activeClassName="active" to="/logout">Logout</Link></li>
+                <li><a onClick={this.logout}>Logout</a></li>
               </ul>
             </div>
           </header>
@@ -49,5 +52,10 @@ class App extends Component {
 App.PropTypes = {
   children: React.PropTypes.node,
 };
+
+App.contextTypes = {
+  router: React.PropTypes.object.isRequired,
+};
+
 
 export default App;
