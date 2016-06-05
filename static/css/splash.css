@@ -4106,12 +4106,25 @@ a.bg-danger:focus, a.bg-danger:hover {
   .hidden-print {
     display: none !important; } }
 
-.jumbotron {
-  background-color: #ffcc33;
-  background: url("/assets/yellowhero.jpg"); }
+html, body {
+  background: url("/assets/yellowhero.jpg") repeat center center fixed;
+  background-size: cover;
+  height: 100%; }
+
+.cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%; }
 
 .hero-btn {
   margin: 2em 1em; }
+
+.headline {
+  margin-top: 10vh; }
 
 .headline-txt {
   color: #fff; }
@@ -4127,6 +4140,3 @@ a.bg-danger:focus, a.bg-danger:hover {
 
 .btn-space {
   margin-bottom: 20px; }
-
-.container-index {
-  z-index: 1; }
