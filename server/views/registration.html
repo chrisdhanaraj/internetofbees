@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <title>Registration</title>
     <link rel="stylesheet" href="/css/splash.css" media="screen" charset="utf-8">
-    <script src="/js/spash.js"></script>
   </head>
 
   <body>
@@ -16,15 +15,18 @@
       </div>
       <div class="container-index login-center headline-txt col-md-4 col-md-offset-4">
         <div class="form-group">
-          <label class="input-head" for="name" placeholder="User Name">User Name:</label>
-          <input type="text" class="form-control input-container" id="usr" placeholder="User Name">
+          <label class="input-head" for="email">Email:</label>
+          <input type="text" class="form-control input-container" id="usr" placeholder="Email">
         </div>
         <div class="form-group">
-          <label class="input-head"for="lastName">Password:</label>
+          <label class="input-head"for="password">Password:</label>
           <input type="password" class="form-control input-container" id="pwd" placeholder="Password">
         </div>
         <p id="error" class="error hidden">Sorry, there was an unexpected error.</p>
-        <button class="btn btn-success btn-lg btn-space">Sign Up</button>
+        <button id="signup" class="btn btn-success btn-lg btn-space">Sign Up</button>
       </div>
-  </div>
+    </div>
+
+    <script src="/js/splash.js"></script>
+  </body>
 </html>
