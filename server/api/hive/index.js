@@ -12,7 +12,11 @@ const create = (req, res) => {
 };
 
 const getAll = (req, res) => {
-  Hive.find((err, hives) => {
+  const apiaryId = req.query.apiaryId;
+
+  Hive.find({
+    apiary: apiaryId,
+  }, (err, hives) => {
     if (err) {
       return console.log(res, err);
     }

@@ -1,0 +1,54 @@
+.title-create-add {
+  display: flex;
+  align-items: center;
+  padding-bottom: 4rem;
+
+  &__header {
+    font-size: 36px;
+    font-weight: 300;
+    color: $black;
+  }
+}
+
+.add-apiary {
+  display: flex;
+  margin-left: 1rem;
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    color: $black;
+    border: 1px solid $black;
+    width: 100%;
+    padding: 1rem 0.75rem;
+    transition: all 200ms ease-in;
+
+    &:hover,
+    &:focus {
+      color: #fff;
+      background-color: darken($black, 10%);
+      transition: all 200ms ease-out;
+    }
+
+    &:active {
+      color: #fff;
+      background-color: darken($black, 20%);
+      transition: all 200ms ease-out;
+    }
+
+    p {
+      font-weight: 700;
+      font-size: 24px;
+    }
+
+    @media (min-width: 554px) {
+      max-width: 300px;
+    }
+  }
+
+  &__sort {
+    margin-left: auto;
+  }
+}

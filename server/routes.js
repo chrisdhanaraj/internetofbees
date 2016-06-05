@@ -1,7 +1,6 @@
 const path = require('path');
 
 module.exports = (app) => {
-
   // api routes
   app.use('/api/apiary', require('./api/apiary'));
   app.use('/api/hive', require('./api/hive'));
@@ -9,21 +8,19 @@ module.exports = (app) => {
   app.use('/api/user', require('./api/user'));
 
   // react routes
-  app.use('/dashboard/*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './views/app.html'));
-  });
-
-  app.use('/login', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './views/app.html'));
-  });
-
-  app.use('/dashboard', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './views/app.html'));
-  });
-
-
   // marketing route
-  app.use('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './views/index.html'));
+
+  app.get('*', (req, res, next) => {
+    if (req.path !== '/') {
+      res.sendFile(path.resolve(__dirname, './views/app.html'));
+    }
+
+    next();
   });
-}
+
+  app.use('/', (req, res) => {
+    if (req.path === '/') {
+      res.sendFile(path.resolve(__dirname, './views/index.html'));
+    }
+  });
+};

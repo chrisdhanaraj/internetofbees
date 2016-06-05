@@ -6,7 +6,8 @@ const apiarySchema = Schema({
     type: String,
     required: true,
   },
-  address: String,
+  image: String,
+  zipCode: String,
   lat: Number,
   long: Number,
   owner: {

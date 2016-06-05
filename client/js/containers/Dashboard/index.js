@@ -1,11 +1,17 @@
+// Many Apiaries
+
 import React, { Component } from 'react';
+import { Link } from 'react-router';
+import { Card, CardMedia, CardTitle } from 'material-ui/Card';
 import 'whatwg-fetch';
+import './styles.scss';
 
 class Dashboard extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      cardStyle: true,
       loading: true,
       apiaries: [],
     };
@@ -14,10 +20,10 @@ class Dashboard extends Component {
   componentDidMount() {
     // get token from localStorage
     // const token = localStorage.getItem('bToken');
-    // const id = localStorage.getItem('bId');
+    const id = localStorage.getItem('bId');
 
     // for now, id = 57534ba876750f3cb159162d
-    const id = '57534ba876750f3cb159162d';
+    // id2 = 5753bbc700ad788702dff9d0
     // if no token, redirect to login
     // fetch apiaries if they exist
     this.getApiaries(`http://localhost:3000/api/apiary?id=${id}`);
@@ -34,31 +40,93 @@ class Dashboard extends Component {
       });
   };
 
+  toggleCard = () => {
+    if (this.state.cardStyle) {
+      return;
+    }
+
+    this.setState({
+      cardStyle: true,
+    });
+  }
+
+  toggleList = () => {
+    if (!this.state.cardStyle) {
+      return;
+    }
+
+    this.setState({
+      cardStyle: false,
+    });
+  }
+
   render() {
     const loading = this.state.loading;
 
-    if (loading) {
-      return (
-        <section className="dashboard">
-          <p>Loading...</p>
-        </section>
+    let copy = (
+      <section className="dashboard">
+        <p>Loading...</p>
+      </section>
+    );
+
+    if (!loading && this.state.apiaries.length === 0) {
+      copy = (
+        <p>No apiaries yet!</p>
       );
     } else {
+      const cardStyle = this.state.cardStyle;
       const apiaries = this.state.apiaries.map(apiary => {
+        const location = {
+          pathname: `/apiary/${apiary.name.replace(/ /g, '_').toLowerCase()}`,
+          query: {
+            apiaryId: apiary._id,
+          },
+        };
+
         return (
-          <div className="card">
-            <p className="card__name">{apiary.name}</p>
-            <div className="card__circle"></div>
+          <div data-id={apiary._id}>
+            <Link
+              to={location}
+              className="card"
+            >
+              <Card>
+                <CardMedia
+                  overlay={<CardTitle title={apiary.name} />}
+                >
+                  <img role="presentation" src={apiary.image ? apiary.image : '/assets/apiaries.jpg'} />
+                </CardMedia>
+              </Card>
+            </Link>
           </div>
         );
       });
 
-      return (
-        <section className="dashboard">
+      copy = (
+        <div className={cardStyle ? 'card-container card-container--cards' : 'card-container card-cointainer--list'}>
           {apiaries}
-        </section>
+        </div>
       );
     }
+
+    return (
+      <section className="dashboard">
+        <header className="dashboard-nav">
+          <h1 className="dashboard-nav__header">Apiaries</h1>
+
+          <div className="add-apiary">
+            <Link
+              className="block-utility"
+              to="/create/apiary"
+            >
+              <div className="add-apiary__button">
+                <p>Add an apiary <i className="fa fa-plus-circle" aria-hidden="true"></i></p>
+              </div>
+            </Link>
+          </div>
+        </header>
+        {copy}
+      </section>
+    );
   }
 }
 

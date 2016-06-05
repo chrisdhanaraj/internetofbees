@@ -1,9 +1,89 @@
 @import './reset';
+$black: #4a4a4a;
 
 body {
-  background-color: #f6f6f6;
+  background-color: #fff;
+  font-family: 'Helvetica Neue', 'Arial', 'sans-serif';
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.block-utility {
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.headerText {
+  font-size: 36px;
+  font-weight: 300;
+  padding-bottom: 4rem;
 }
 
 .bees {
   background-color: #fff;
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+
+  @media (min-width: 576px) {
+    width: 544px;
+  }
+
+  @media (min-width: 768px) {
+    width: 720px;
+  }
+
+  @media (min-width: 992px) {
+    width: 940px;
+  }
+
+  @media (min-width: 1170px) {
+    width: 1140px;
+  }
+}
+
+.navigation {
+  display: flex;
+  padding: 1rem;
+  color: $black;
+  border-bottom: 1px solid $black;
+
+  &__logo {
+    p {
+      letter-spacing: 0.5px;
+      font-size: 16px;
+      font-weight: 300;
+      text-transform: uppercase;
+    }
+  }
+
+  &__menu {
+    margin-left: auto;
+
+    ul {
+      display: flex;
+    }
+
+    a {
+      color: $black;
+      padding: 0 1rem;
+      font-size: 16px;
+      text-decoration: none;
+      text-transform: uppercase;
+
+      &.active {
+        position: relative;
+        font-weight: 700;
+        padding-bottom: 5px;
+      }
+    }
+
+  }
+
 }

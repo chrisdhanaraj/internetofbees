@@ -5,6 +5,8 @@ const path = require('path');
 
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const cors = require('cors');
+
 
 const mongoose = require('mongoose');
 
@@ -17,6 +19,8 @@ mongoose.connect(`mongodb://localhost:27017/bees`);
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+app.use(cors());
 
 routes(app);
 

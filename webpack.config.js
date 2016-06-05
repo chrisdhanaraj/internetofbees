@@ -6,6 +6,7 @@ module.exports = ({
 
   output: {
     path: './static/js',
+    publicPath: '/js/',
     filename: 'app.js',
   },
 
@@ -19,7 +20,6 @@ module.exports = ({
       {
         test: /\.scss$/,
         loaders: ['style', 'css', 'sass'],
-        exclude: /node_modules/,
       },
     ],
   },
@@ -38,8 +38,6 @@ module.exports = ({
   progress: true,
 
   devServer: {
-    hot: true,
-    inline: true,
     proxy: {
       '*': 'http://localhost:3000',
     },
