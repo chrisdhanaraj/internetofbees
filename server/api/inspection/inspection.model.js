@@ -46,7 +46,9 @@ const inspectionSchema = Schema({
   humidity: String,
   weight: Number,
   honeyFramesHarvested: Number,
-  broodFramesHarvested: Number
+  broodFramesHarvested: Number,
 });
 
 const Inspection = mongoose.model('Inspection', inspectionSchema);
+
+module.exports = Inspection;

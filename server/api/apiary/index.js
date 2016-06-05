@@ -12,9 +12,15 @@ const create = (req, res) => {
 };
 
 const getAll = (req, res) => {
-  Apiary.find((err, apiaries) => {
+  const ownerId = req.query.id;
+
+  Apiary.find({
+    owner: ownerId,
+  }, (err, apiaries) => {
     if (err) {
-      return console.log(res, err);
+      return res.status(200).json({
+        error: 'No Apiares',
+      });
     }
     return res.status(200).json(apiaries);
   });
