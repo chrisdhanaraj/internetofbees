@@ -9,13 +9,17 @@ html, body {
   top: 0;
   left: 0;
   z-index: 10;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.58);
   height: 100%;
   width: 100%;
 }
 
 .hero-btn {
   margin: 2em 1em;
+}
+
+#btn-color {
+  color: #f3f3f3;
 }
 
 .headline {
@@ -40,5 +44,9 @@ html, body {
 
 .btn-space {
   margin-bottom: 20px;
+}
+
+.content-wrap {
+  max-width: 680px;
 }
 
